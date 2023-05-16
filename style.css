@@ -15,6 +15,10 @@
     font-weight: 900;
 }
 
+body {
+    overflow-x: hidden;
+}
+
 .container {
     width: 100vw;
     height: 100vh;
@@ -143,6 +147,11 @@
     z-index: 10;
     cursor: pointer;
 }
+
+footer {
+    text-align: center;
+}
+
 
 @media (max-width:1010px) {
     .container {
