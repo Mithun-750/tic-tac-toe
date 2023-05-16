@@ -16,6 +16,7 @@ let Xwin_Count = 0
 
 again.onclick = () => {
     movecount = 9
+    PlayerO.classList.remove('active')
     PlayerO.classList.add('active')
     PlayerX.classList.remove('active')
 
@@ -25,7 +26,7 @@ again.onclick = () => {
     result.style.display = 'none'
     again.style.display = 'none'
 
-    i = 0;
+    i = 1;
 
     boxes.forEach(element => {
         element.innerHTML = ''
