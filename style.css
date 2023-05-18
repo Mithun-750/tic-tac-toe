@@ -25,20 +25,57 @@ body {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    background-color: antiquewhite;
 }
 
-.container::before {
+#mode {
+    position: fixed;
+    display: flex;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#mode::before {
     content: ' ';
-    z-index: -2;
+    background-color: rgba(240, 255, 255, 0.601);
     position: fixed;
     top: 0px;
     left: 0px;
     width: 100vw;
     height: 100vh;
-    background-color: antiquewhite;
-    filter: blur(2px);
+    z-index: -1;
 }
 
+#mode button {
+    width: 300px;
+    border: none;
+    width: 300px;
+    height: 75px;
+    background-color: indianred;
+    color: azure;
+    border-radius: 15px;
+    font-size: 25px;
+    z-index: 10;
+    box-shadow: 0px 0px 10px 3px gray;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+
+#mode button:hover {
+    box-shadow: 2px 2px 10px 3px gray;
+    transform: translateY(-2px) translateX(-2px);
+}
+
+#mode button:active {
+    box-shadow: 0px 0px 10px 3px gray;
+    transform: translate(0px);
+}
 
 .aBox {
     height: 100px;
@@ -69,7 +106,6 @@ body {
 #xox {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    /* border: 2px solid black; */
     border-radius: 10px;
     overflow: hidden;
 }
@@ -151,7 +187,6 @@ body {
 footer {
     text-align: center;
 }
-
 
 @media (max-width:1010px) {
     .container {
