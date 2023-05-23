@@ -205,11 +205,16 @@ function computerMoveHard() {
     let allVal = [row0X, row1X, row2X, col0X, col1X, col2X, diag0X, diag1X];
     let allOVal = [row0O, row1O, row2O, col0O, col1O, col2O, diag0O, diag1O];
 
-    allOVal.forEach(element => {
+
+    for (let k = 0; k < allOVal.length; k++) {
+        const element = allOVal[k];
+
         if (element == 0) {
             return
         }
-    });
+
+
+    }
 
     for (let j = 0; j < allArr.length; j++) {
         const arrElement = allArr[j];
