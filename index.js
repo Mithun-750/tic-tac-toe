@@ -145,7 +145,7 @@ function computerMoveEasy() {
 
 
             if (allVal[j] == 1) {
-                if (!(element.hasChildNodes())) {
+                if ((element) && (!(element.hasChildNodes()))) {
                     return element
                 }
             }
@@ -163,7 +163,7 @@ function computerMoveEasy() {
             let element = arrElement[index];
 
             if ((allVal[j] == 2) && (allOVal[j] == 3)) {
-                if (!(element.hasChildNodes())) {
+                if ((element) && (!(element.hasChildNodes()))) {
                     return element
                 }
             }
@@ -198,7 +198,7 @@ function computerMoveEasy() {
             let element = arrElement[index];
 
 
-            if (!(element.hasChildNodes())) {
+            if ((element) && (!(element.hasChildNodes()))) {
                 return element
             }
 
@@ -245,7 +245,7 @@ function computerMoveHard() {
 
 
             if (allVal[j] == 1) {
-                if (!(element.hasChildNodes())) {
+                if ((element) && (!(element.hasChildNodes()))) {
                     return element
                 }
             }
@@ -263,7 +263,7 @@ function computerMoveHard() {
 
 
             if (allOVal[j] == 1) {
-                if (!(element.hasChildNodes())) {
+                if ((element) && (!(element.hasChildNodes()))) {
                     return element
                 }
             }
@@ -275,12 +275,12 @@ function computerMoveHard() {
         const arrElement = allArr[j];
 
 
-        for (let index = 0; index < arrElement.length; index++) {
+        for (let index = arrElement.length; index >= 0; index--) {
 
             let element = arrElement[index];
 
             if ((allVal[j] == 2) && (allOVal[j] == 3)) {
-                if (!(element.hasChildNodes())) {
+                if ((element) && (!(element.hasChildNodes()))) {
                     return element
                 }
             }
@@ -313,12 +313,12 @@ function computerMoveHard() {
         const arrElement = allArr[j];
 
 
-        for (let index = 0; index < arrElement.length; index++) {
+        for (let index = (arrElement.length - 1); index >= 0; index--) {
 
             let element = arrElement[index];
 
 
-            if (!(element.hasChildNodes())) {
+            if (((element) && (!(element.hasChildNodes())))) {
                 return element
             }
 
@@ -333,7 +333,7 @@ PvP.onclick = () => {
     mode.style.display = 'none'
     boxes.forEach(element => {
         element.onclick = () => {
-            if (!(element.hasChildNodes())) {
+            if ((element) && (!(element.hasChildNodes()))) {
                 movecount--;
                 if (i == 1) {
                     AddO(element)
@@ -354,7 +354,7 @@ easy.onclick = () => {
     boxes.forEach(element => {
         element.onclick = () => {
             if (i == 1) {
-                if (!(element.hasChildNodes())) {
+                if ((element) && (!(element.hasChildNodes()))) {
                     movecount--;
                     AddO(element)
                     PlayerX.classList.toggle('active')
@@ -381,7 +381,7 @@ hard.onclick = () => {
     boxes.forEach(element => {
         element.onclick = () => {
             if (i == 1) {
-                if (!(element.hasChildNodes())) {
+                if ((element) && (!(element.hasChildNodes()))) {
                     movecount--;
                     AddO(element)
                     PlayerX.classList.toggle('active')
