@@ -121,6 +121,9 @@ function computerMoveEasy() {
     let allVal = [row0X, row1X, row2X, col0X, col1X, col2X, diag0X, diag1X];
     let allOVal = [row0O, row1O, row2O, col0O, col1O, col2O, diag0O, diag1O];
 
+    if ((movecount == 0)) {
+        return
+    }
 
     for (let k = 0; k < allOVal.length; k++) {
         const element = allOVal[k];
@@ -159,7 +162,7 @@ function computerMoveEasy() {
 
             let element = arrElement[index];
 
-            if (allVal[j] == 2) {
+            if ((allVal[j] == 2) && (allOVal[j] == 3)) {
                 if (!(element.hasChildNodes())) {
                     return element
                 }
@@ -172,6 +175,19 @@ function computerMoveEasy() {
     if (!(row1El[1].hasChildNodes())) {
         return row1El[1]
     }
+    let boxes = Array.from(document.getElementsByClassName('aBox'))
+
+    let aElement = row1El[1];
+    do {
+        aElement = boxes[Math.floor(Math.random() * 9)]
+
+    } while ((aElement.hasChildNodes()));
+
+    if (aElement != null) {
+
+        return aElement;
+    }
+
 
     for (let j = 0; j < allArr.length; j++) {
         const arrElement = allArr[j];
@@ -205,6 +221,9 @@ function computerMoveHard() {
     let allVal = [row0X, row1X, row2X, col0X, col1X, col2X, diag0X, diag1X];
     let allOVal = [row0O, row1O, row2O, col0O, col1O, col2O, diag0O, diag1O];
 
+    if ((movecount <= 0)) {
+        return
+    }
 
     for (let k = 0; k < allOVal.length; k++) {
         const element = allOVal[k];
@@ -260,7 +279,7 @@ function computerMoveHard() {
 
             let element = arrElement[index];
 
-            if (allVal[j] == 2) {
+            if ((allVal[j] == 2) && (allOVal[j] == 3)) {
                 if (!(element.hasChildNodes())) {
                     return element
                 }
@@ -269,10 +288,26 @@ function computerMoveHard() {
         }
     }
 
-
     if (!(row1El[1].hasChildNodes())) {
         return row1El[1]
     }
+
+
+    let boxes = Array.from(document.getElementsByClassName('aBox'))
+
+    let aElement = row1El[1];
+    do {
+        aElement = boxes[Math.floor(Math.random() * 9)]
+
+    } while ((aElement.hasChildNodes()));
+
+    if (aElement != null) {
+
+        return aElement;
+    }
+
+
+
 
     for (let j = 0; j < allArr.length; j++) {
         const arrElement = allArr[j];
@@ -327,12 +362,15 @@ easy.onclick = () => {
                     i = (i + 1) % 2
                 }
                 setTimeout(() => {
+                    let compMov = computerMoveEasy()
+                    if ((compMov) && (movecount > 0)) {
+                        movecount--;
 
-                    movecount--;
-                    AddX(computerMoveEasy())
-                    PlayerX.classList.toggle('active')
-                    PlayerO.classList.toggle('active')
-                    i = (i + 1) % 2
+                        AddX(compMov)
+                        PlayerX.classList.toggle('active')
+                        PlayerO.classList.toggle('active')
+                        i = (i + 1) % 2
+                    }
                 }, 1000);
             }
         }
@@ -351,12 +389,15 @@ hard.onclick = () => {
                     i = (i + 1) % 2
                 }
                 setTimeout(() => {
+                    let compMov = computerMoveHard()
+                    if ((compMov) && (movecount > 0)) {
+                        movecount--;
 
-                    movecount--;
-                    AddX(computerMoveHard())
-                    PlayerX.classList.toggle('active')
-                    PlayerO.classList.toggle('active')
-                    i = (i + 1) % 2
+                        AddX(compMov)
+                        PlayerX.classList.toggle('active')
+                        PlayerO.classList.toggle('active')
+                        i = (i + 1) % 2
+                    }
                 }, 1000);
             }
         }
